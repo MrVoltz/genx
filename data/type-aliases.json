@@ -1,0 +1,100 @@
+{
+	"bool": {
+		"location": [
+			"System"
+		],
+		"name": "Boolean",
+		"kind": "primitive"
+	},
+	"string": {
+		"location": [
+			"System"
+		],
+		"name": "String",
+		"kind": null
+	},
+	"object": {
+		"location": [
+			"System"
+		],
+		"name": "Object",
+		"kind": null
+	},
+	"byte": {
+		"location": [
+			"System"
+		],
+		"name": "Byte",
+		"kind": "primitive"
+	},
+	"ushort": {
+		"location": [
+			"System"
+		],
+		"name": "UInt16",
+		"kind": "primitive"
+	},
+	"uint": {
+		"location": [
+			"System"
+		],
+		"name": "UInt32",
+		"kind": "primitive"
+	},
+	"ulong": {
+		"location": [
+			"System"
+		],
+		"name": "UInt64",
+		"kind": "primitive"
+	},
+	"sbyte": {
+		"location": [
+			"System"
+		],
+		"name": "SByte",
+		"kind": "primitive"
+	},
+	"short": {
+		"location": [
+			"System"
+		],
+		"name": "Int16",
+		"kind": "primitive"
+	},
+	"int": {
+		"location": [
+			"System"
+		],
+		"name": "Int32",
+		"kind": "primitive"
+	},
+	"long": {
+		"location": [
+			"System"
+		],
+		"name": "Int64",
+		"kind": "primitive"
+	},
+	"float": {
+		"location": [
+			"System"
+		],
+		"name": "Single",
+		"kind": "primitive"
+	},
+	"double": {
+		"location": [
+			"System"
+		],
+		"name": "Double",
+		"kind": "primitive"
+	},
+	"decimal": {
+		"location": [
+			"System"
+		],
+		"name": "Decimal",
+		"kind": null
+	}
+}

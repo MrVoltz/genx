@@ -3,3 +3,4 @@ node_modules/
 *.sublime-workspace
 
 .env
+data/types.json
