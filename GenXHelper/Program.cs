@@ -55,8 +55,11 @@ namespace GenXHelper
             writer.WritePropertyName("name");
             writer.WriteValue(value.Name);
 
-            writer.WritePropertyName("customAttributes");
-            serializer.Serialize(writer, value.CustomAttributes);
+            if (value.HasCustomAttributes)
+            {
+                writer.WritePropertyName("customAttributes");
+                serializer.Serialize(writer, value.CustomAttributes);
+            }
 
             writer.WriteEndObject();
         }
@@ -71,8 +74,11 @@ namespace GenXHelper
             writer.WritePropertyName("name");
             writer.WriteValue(value.Name);
 
-            writer.WritePropertyName("customAttributes");
-            serializer.Serialize(writer, value.CustomAttributes);
+            if (value.HasCustomAttributes)
+            {
+                writer.WritePropertyName("customAttributes");
+                serializer.Serialize(writer, value.CustomAttributes);
+            }
 
             writer.WritePropertyName("fieldType");
             Program.referenceConverter.WriteJson(writer, value.FieldType, serializer);
@@ -90,8 +96,11 @@ namespace GenXHelper
             writer.WritePropertyName("name");
             writer.WriteValue(value.Name);
 
-            writer.WritePropertyName("customAttributes");
-            serializer.Serialize(writer, value.CustomAttributes);
+            if (value.HasCustomAttributes)
+            {
+                writer.WritePropertyName("customAttributes");
+                serializer.Serialize(writer, value.CustomAttributes);
+            }
 
             writer.WritePropertyName("propertyType");
             Program.referenceConverter.WriteJson(writer, value.PropertyType, serializer);
@@ -111,8 +120,11 @@ namespace GenXHelper
             writer.WritePropertyName("kind");
             writer.WriteValue(value.IsPrimitive ? "primitive" : value.IsEnum ? "enum" : value.IsInterface ? "interface" : value.IsClass ? "class" : null);
 
-            writer.WritePropertyName("customAttributes");
-            serializer.Serialize(writer, value.CustomAttributes);
+            if (value.HasCustomAttributes)
+            {
+                writer.WritePropertyName("customAttributes");
+                serializer.Serialize(writer, value.CustomAttributes);
+            }
 
             if (value.IsEnum)
             {
@@ -134,13 +146,13 @@ namespace GenXHelper
                 serializer.Serialize(writer, value.Interfaces);
 
                 writer.WritePropertyName("methods");
-                serializer.Serialize(writer, value.Methods.Where(f => !f.IsManaged && f.IsPublic));
+                serializer.Serialize(writer, value.Methods.Where(m => !m.IsCompilerControlled && !m.IsSpecialName && !m.CustomAttributes.Any(a => a.AttributeType.Name == "CompilerGeneratedAttribute")));
 
                 writer.WritePropertyName("properties");
                 serializer.Serialize(writer, value.Properties);
 
                 writer.WritePropertyName("fields");
-                serializer.Serialize(writer, value.Fields.Where(f => !f.IsCompilerControlled && !f.CustomAttributes.Any(a => a.AttributeType.Name == "CompilerGeneratedAttribute")));
+                serializer.Serialize(writer, value.Fields.Where(f => !f.IsCompilerControlled && !f.IsSpecialName && !f.CustomAttributes.Any(a => a.AttributeType.Name == "CompilerGeneratedAttribute")));
             }
 
             writer.WriteEndObject();
@@ -167,8 +179,8 @@ namespace GenXHelper
 
             Program.writeNameAndLocationProperties(writer, value, serializer);
 
-            writer.WritePropertyName("kind");
-            writer.WriteValue(value.IsPrimitive ? "primitive" : value.IsArray ? "array" : null);
+            //writer.WritePropertyName("kind");
+            //writer.WriteValue(value.IsPrimitive ? "primitive" : value.IsArray ? "array" : null);
 
             if (value.IsGenericInstance)
             {
