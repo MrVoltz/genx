@@ -1,0 +1,123 @@
+{
+	"classes": [
+		{
+			"location": [
+				"System"
+			],
+			"name": "Boolean",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "String",
+			"kind": "class"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "Object",
+			"kind": "class"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "Byte",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "UInt16",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "UInt32",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "UInt64",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "SByte",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "Int16",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "Int32",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "Int64",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "Single",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "Double",
+			"kind": "primitive"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "Decimal",
+			"kind": "class"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "DateTime",
+			"kind": "class"
+		},
+		{
+			"location": [
+				"System"
+			],
+			"name": "TimeSpan",
+			"kind": "class"
+		},
+		{
+			"location": [
+              "System"
+            ],
+            "name": "Uri",
+            "kind": "class"
+		}
+	]
+}

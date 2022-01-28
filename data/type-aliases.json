@@ -3,98 +3,90 @@
 		"location": [
 			"System"
 		],
-		"name": "Boolean",
-		"kind": "primitive"
+		"name": "Boolean"
+	},
+	"char": {
+		"location": [
+			"System"
+		],
+		"name": "Char"
 	},
 	"string": {
 		"location": [
 			"System"
 		],
-		"name": "String",
-		"kind": null
+		"name": "String"
 	},
 	"object": {
 		"location": [
 			"System"
 		],
-		"name": "Object",
-		"kind": null
+		"name": "Object"
 	},
 	"byte": {
 		"location": [
 			"System"
 		],
-		"name": "Byte",
-		"kind": "primitive"
+		"name": "Byte"
 	},
 	"ushort": {
 		"location": [
 			"System"
 		],
-		"name": "UInt16",
-		"kind": "primitive"
+		"name": "UInt16"
 	},
 	"uint": {
 		"location": [
 			"System"
 		],
-		"name": "UInt32",
-		"kind": "primitive"
+		"name": "UInt32"
 	},
 	"ulong": {
 		"location": [
 			"System"
 		],
-		"name": "UInt64",
-		"kind": "primitive"
+		"name": "UInt64"
 	},
 	"sbyte": {
 		"location": [
 			"System"
 		],
-		"name": "SByte",
-		"kind": "primitive"
+		"name": "SByte"
 	},
 	"short": {
 		"location": [
 			"System"
 		],
-		"name": "Int16",
-		"kind": "primitive"
+		"name": "Int16"
 	},
 	"int": {
 		"location": [
 			"System"
 		],
-		"name": "Int32",
-		"kind": "primitive"
+		"name": "Int32"
 	},
 	"long": {
 		"location": [
 			"System"
 		],
-		"name": "Int64",
-		"kind": "primitive"
+		"name": "Int64"
 	},
 	"float": {
 		"location": [
 			"System"
 		],
-		"name": "Single",
-		"kind": "primitive"
+		"name": "Single"
 	},
 	"double": {
 		"location": [
 			"System"
 		],
-		"name": "Double",
-		"kind": "primitive"
+		"name": "Double"
 	},
 	"decimal": {
 		"location": [
 			"System"
 		],
-		"name": "Decimal",
-		"kind": null
+		"name": "Decimal"
 	}
 }

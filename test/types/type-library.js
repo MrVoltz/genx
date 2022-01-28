@@ -23,6 +23,7 @@ function createTypeLibrary() {
 	const tl = new TypeLibrary;
 
 	tl.loadFromJson(require("../../data/types.json"));
+	tl.loadFromJson(require("../../data/types-extra.json"));
 	tl.loadAliasesFromJson(require("../../data/type-aliases.json"));
 
 	return tl;
@@ -104,16 +105,59 @@ test("methods", () => {
 	assert(destroyMethod);
 });
 
-// test("isAssignableFrom - generic", () => {
-// 	const tl = createTypeLibrary();
+test("equals", () => {
+	const tl = createTypeLibrary();
 
-// 	let iWorldElement = tl.resolveSimpleType("IWorldElement");
-// 	let addInt = tl.resolveSimpleType("Add_Int");
-// 	let logixNode = tl.resolveSimpleType("LogixNode");
+	let syncInt = tl.resolveSimpleType("Sync<int>");
+	let syncBool = tl.resolveSimpleType("Sync<bool>");
 
-// 	assert(iWorldElement.isAssignableFrom(iWorldElement));
-// 	assert(iWorldElement.isAssignableFrom(addInt));
-// 	assert(logixNode.isAssignableFrom(addInt));
-// });
+	assert(syncInt.equals(syncInt));
+	assert(syncInt.equals(syncInt, true));
+	assert(!syncInt.equals(syncBool));
+	assert(!syncInt.equals(syncBool, true));
+
+	let syncT = tl.resolveSimpleType("Sync<T>", ["T"]);
+	let syncL = tl.resolveSimpleType("Sync<L>", ["L"]);
+
+	assert(!syncT.equals(syncL));
+	assert(syncT.equals(syncL, true));
+
+	let forward = syncT.mapGenericArguments(syncL);
+	assert.equal(forward.size, 1);
+	assert.equal(forward.get("T"), "L");
+
+	let reverse = syncL.mapGenericArguments(syncT);
+	assert.equal(reverse.size, 1);
+	assert.equal(reverse.get("L"), "T");
+
+	let castClassCC = tl.resolveSimpleType("CastClass<C,C>", ["C"]);
+	let castClassDD = tl.resolveSimpleType("CastClass<D,D>", ["D"]);
+	let castClassAB = tl.resolveSimpleType("CastClass<A,B>", ["A", "B"]);
+
+	assert(castClassCC.equals(castClassDD, true));
+	assert(!castClassCC.equals(castClassAB, true));
+});
+
+test("isAssignableFrom - generic", () => {
+	const tl = createTypeLibrary();
+
+	let addInt = tl.resolveSimpleType("Add_Int");
+	let iElementContentInt = tl.resolveSimpleType("IElementContent<int>");
+
+	assert(iElementContentInt.isAssignableFrom(addInt));
+
+	let iElementContentT = tl.resolveSimpleType("IElementContent<T>", ["T"]);
+	let map = iElementContentT.isAssignableFrom(addInt);
+	assert(map);
+	assert.equal(map.get("T").namespacedName, "System.Int32");
+});
+
+test("naked types", () => {
+	const tl = createTypeLibrary();
+
+	assert(tl.resolveSimpleType("int"));
+	assert(tl.resolveSimpleType("Int32"));
+	assert(tl.resolveSimpleType("TimeSpan"));
+});
 
 test.run();
