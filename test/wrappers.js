@@ -52,7 +52,7 @@ test("worker - syncMethods", () => {
 	assert(writeMethod.isImpulseTarget);
 });
 
-test("assign syncValue", () => {
+test("assign neos primitives", () => {
 	const Slot = wrapType("Slot");
 	const string = wrapType("string");
 	const float3 = wrapType("float3");
@@ -81,6 +81,13 @@ test("assign syncValue", () => {
 
 	assert.throws(() => slot.get("Scale").assign(new string("test")));
 	slot.get("Scale").assign(new float3([ 1, 1, 1 ]));
+});
+
+test("assign neos primitives - auto cast", () => {
+	const Slot = wrapType("Slot");
+
+	let slot = new Slot;
+	slot.assign("Name", "Testovací slot");
 });
 
 test("slot - attachComponent", () => {
