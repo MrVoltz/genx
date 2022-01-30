@@ -95,7 +95,7 @@ test("slot - attachComponent", () => {
 
 	let slot = new Slot;
 	let grabbable = slot.attachComponent("Grabbable");
-	console.log(util.inspect(slot.toJSON(), { depth: Infinity }));
+	// console.log(util.inspect(slot.toJSON(), { depth: Infinity }));
 });
 
 test.run();

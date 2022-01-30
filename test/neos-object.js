@@ -10,7 +10,7 @@ test("slot", () => {
 	let slot = createInstance("Slot");
 	let grabbable = slot.attachComponent("Grabbable");
 
-	console.log(util.inspect(slot.toJSON(), { depth: Infinity }));
+	// console.log(util.inspect(slot.toJSON(), { depth: Infinity }));
 });
 
 test("object", () => {
@@ -30,7 +30,7 @@ test("object", () => {
 
 	let obj = object.toJSON();
 
-	console.log(util.inspect(obj, { depth: Infinity }));
+	// console.log(util.inspect(obj, { depth: Infinity }));
 	fs.writeFileSync("/tmp/testobj.json", JSON.stringify(obj));
 });
 
